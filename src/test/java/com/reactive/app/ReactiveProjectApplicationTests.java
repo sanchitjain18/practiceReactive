@@ -16,18 +16,18 @@ class ReactiveProjectApplicationTests {
 
     @Test
     void workingWithMono() {
-//        Mono<String> errorMono = Mono
-//                .error(new RuntimeException("Error!!"));
+        Mono<String> errorMono = Mono
+                .error(new RuntimeException("Error!!"));
 //
 ////        Created Mono
-//        Mono<String> m1 = Mono
-//                .just("Some data")
-//                .then(errorMono)
-//                .log();
+        Mono<String> m1 = Mono
+                .just("Some data")
+                .then(errorMono)
+                .log();
 //
 ////        Consume the mono by subscribing
-//        m1.subscribe(System.out::println);
-////        errorMono.subscribe(System.out::println);
+        m1.subscribe(System.out::println);
+//        errorMono.subscribe(System.out::println);
 
         Mono<String> mono1 = Mono.just("Hello, my name is Sanchit");
         Mono<String> mono2 = Mono.just("World");
