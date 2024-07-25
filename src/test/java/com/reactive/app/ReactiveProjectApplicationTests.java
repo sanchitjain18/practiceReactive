@@ -49,19 +49,19 @@ class ReactiveProjectApplicationTests {
         Flux<String> concatFlux = mono1.concatWith(mono2).log();
         concatFlux.subscribe(System.out::println);
 
-//        Mono<Tuple3<String, String, Integer>> combinedMono = Mono.zip(mono1, mono2, mono3);
-//
-//        combinedMono.subscribe(data -> {
-//            System.out.println(data.getT1());
-//            System.out.println(data.getT2());
-//            System.out.println(data.getT3());
-//        });
-//
-//        Mono<Tuple2<String, String>> zipWithMono = mono1.zipWith(mono2);
-//
-//        zipWithMono.subscribe(data -> {
-//            System.out.println(data.getT1());
-//            System.out.println(data.getT2());
-//        });
+        Mono<Tuple3<String, String, Integer>> combinedMono = Mono.zip(mono1, mono2, mono3);
+
+        combinedMono.subscribe(data -> {
+            System.out.println(data.getT1());
+            System.out.println(data.getT2());
+            System.out.println(data.getT3());
+        });
+
+        Mono<Tuple2<String, String>> zipWithMono = mono1.zipWith(mono2);
+
+        zipWithMono.subscribe(data -> {
+            System.out.println(data.getT1());
+            System.out.println(data.getT2());
+        });
     }
 }
