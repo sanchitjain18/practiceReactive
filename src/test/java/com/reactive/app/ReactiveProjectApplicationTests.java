@@ -36,15 +36,15 @@ class ReactiveProjectApplicationTests {
         Mono<String> resultMapMono = mono1.map(String::toUpperCase);
         resultMapMono.subscribe(System.out::println);
 
-//        Mono<String[]> flatMapMono = mono1.flatMap(valueMono1 -> Mono.just(valueMono1.split(" ")));
-//        flatMapMono.subscribe(data -> {
-//            for (String s : data) {
-//                System.out.println(s);
-//            }
-//        });
+        Mono<String[]> flatMapMono = mono1.flatMap(valueMono1 -> Mono.just(valueMono1.split(" ")));
+        flatMapMono.subscribe(data -> {
+            for (String s : data) {
+                System.out.println(s);
+            }
+        });
 
-//        Flux<String> stringFlux = mono1.flatMapMany(valueMono1 -> Flux.just(valueMono1.split(" "))).log();
-//        stringFlux.subscribe(System.out::println);
+        Flux<String> stringFlux = mono1.flatMapMany(valueMono1 -> Flux.just(valueMono1.split(" "))).log();
+        stringFlux.subscribe(System.out::println);
 
         Flux<String> concatFlux = mono1.concatWith(mono2).log();
         concatFlux.subscribe(System.out::println);
